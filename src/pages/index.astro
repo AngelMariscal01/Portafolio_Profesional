@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import About from '../components/About';
+import Experience from '../components/Experience';
+import Projects from '../components/Projects';
+import Achievements from '../components/Achievements';
+import Contact from '../components/Contact';
+---
+
+<Layout title="Portafolio - Angel Mariscal">
+  <Navbar client:load />
+  <About client:load />
+  <Experience client:load />
+  <Projects client:load />
+  <Achievements client:load />
+  <Contact client:load />
+</Layout>
