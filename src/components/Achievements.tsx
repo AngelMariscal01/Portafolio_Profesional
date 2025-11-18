@@ -14,7 +14,16 @@ const certifications = [
     description: 'HCCDA - TECH Essentials. Certificación que valida conocimientos fundamentales en desarrollo y servicios de Huawei Cloud.',
     image: '/images/huaweicloud.jpg',
     link: 'https://www.linkedin.com/feed/update/urn:li:activity:7372288452152918016/'
+  },
+  {
+    title: 'DATA SCIENTIST CERTIFICATION',
+    issuer: 'Soy Henry',
+    description: 'Un Data Scientist es un profesional del campo de la ciencia de datos que aplica sus conocimientos en programación, matemáticas y estadística para recopilar, extraer y procesar información durante todo el ciclo de vida del dato.',
+    image: '/images/henry.png',
+    link: 'https://www.soyhenry.com/data-scientist'
   }
+  
+
 ];
 
 const contests = [
