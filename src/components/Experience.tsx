@@ -8,11 +8,11 @@ const experiences = [
     period: 'Jun 2025 - Actualidad',
     type: 'Profesional independiente',
     description: 'Diseño e implementación de un agente de IA (Amazon Bedrock Agentcore) con Claude 4.5 para permitir consultas en lenguaje natural a bases de datos de clientes, utilizando APIs (AWS Lambda) para la integración. Adicionalmente, desarrollé una aplicación integrada con IA Generativa para automatizar la creación de componentes, además la modificación y creación de aplicaciones.',
-    tech: 'AWS Bedrock, Bedrock Agents (AgentCore), Claude 4.5, AWS Lambda, React JS, Node.js',
+    tech: 'AWS Bedrock, AWS Bedrock AgentCore, Claude Sonnet 4.5, AWS Lambda, React JS, Node.js',
     details: {
       intro: 'Desarrollo de soluciones avanzadas de IA Generativa para automatización empresarial.',
       features: [
-        'Agente de IA con Claude 4.5: Implementación de Amazon Bedrock Agentcore para consultas en lenguaje natural a bases de datos, permitiendo a los usuarios interactuar con información compleja de manera intuitiva.',
+        'Agente de IA con Claude Sonnet 4.5: Implementación de Amazon Bedrock Agentcore para consultas en lenguaje natural a bases de datos, permitiendo a los usuarios interactuar con información compleja de manera intuitiva.',
         'Integración con AWS Lambda: Desarrollo de APIs serverless para conectar el agente de IA con sistemas de clientes, garantizando escalabilidad y rendimiento.',
         'Automatización de Desarrollo: Creación de una aplicación que utiliza IA Generativa para automatizar la generación, modificación y creación de componentes de software, acelerando el ciclo de desarrollo.',
         'Optimización de Procesos: Reducción significativa del tiempo de desarrollo mediante la automatización inteligente de tareas repetitivas.'
