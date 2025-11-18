@@ -34,7 +34,7 @@ export default function About() {
               Soy Ingeniero en Sistemas Computacionales, con especialidad en Cómputo en la Nube y Ciberseguridad, y
               experiencia en desarrollo de aplicaciones de escritorio, proyectos de ciencia de datos y desarrollo Fullstack.
               Durante mi último año de estudios, me he desempeñado como Ingeniero de Inteligencia Artificial Generativa,
-              aplicando conocimientos en LangChain para crear soluciones con AWS Bedrock y AWS Bedrock Agents. He
+              aplicando conocimientos en LangChain y Strands para crear soluciones con AWS Bedrock y AWS Bedrock Agentcore. He
               completado un bootcamp en Data Science (ingeniería de datos) y poseo las certificaciones AWS IA Practitioner y
               Huawei Cloud Developer Associate. Tengo habilidades sólidas en Linux, Python, SQL, Docker y plataformas cloud.
               Soy proactivo y responsable, buscando aplicar mis conocimientos en un entorno desafiante para crecer
