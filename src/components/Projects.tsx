@@ -95,6 +95,28 @@ const projects = [
         'Objetivo: Optimizar, automatizar y escalar el modelo de ventas de la repostería.'
       ]
     }
+  },
+  {
+    title: 'Irakani Builder - Proyecto de Residencias Profesionales',
+    tech: 'React | Node.js | LaTeX | AWS | Express.js | Inteligencia Artificial | Low-Code Platform',
+    summary: 'Plataforma innovadora para la creación de aplicaciones web de manera visual e intuitiva, desarrollada durante residencias profesionales en ITERADAPTA (Irakani).',
+    image: '/images/irakani-builder.png',
+    github: 'https://github.com/AngelMariscal01/Documentacion_Residencias_Profesionales.git',
+    details: {
+      subtitle: 'Constructor Visual de Aplicaciones - Low-Code/No-Code Platform',
+      intro: 'Irakani Builder es una plataforma que democratiza el desarrollo de software, permitiendo crear aplicaciones empresariales sin conocimientos avanzados de programación. Desarrollado durante el periodo de residencias profesionales en ITERADAPTA (Irakani), este proyecto aborda la complejidad del desarrollo tradicional mediante herramientas visuales y automatización inteligente.',
+      role: 'Ingeniero en Inteligencia Artificial Generativa - Implementación de funcionalidades core del builder',
+      features: [
+        'Editor Visual Completo: Interfaz para diseño de aplicaciones con componentes reutilizables y personalizables.',
+        'Gestión de Bases de Datos: Panel administrativo integrado para crear, modificar y gestionar esquemas de base de datos con IA.',
+        'Generación Automática de Código: Sistema que transforma peticiones en lenguaje natural en código funcional optimizado.',
+        'Chat con IA Integrado: Asistente inteligente que ayuda en el proceso de desarrollo y responde consultas técnicas.',
+        'Monaco Editor: Editor de código avanzado para usuarios que deseen personalizar manualmente.',
+        'Vista Previa en Tiempo Real: Visualización instantánea de cambios durante el desarrollo.',
+        'Sistema de Temas: Personalización completa de la apariencia del editor de texto.',
+        'Arquitectura Modular: Diseño escalable que permite agregar nuevas funcionalidades fácilmente.'
+      ]
+    }
   }
 ];
 
