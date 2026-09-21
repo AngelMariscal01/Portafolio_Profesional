@@ -81,7 +81,10 @@ export const profile = {
     },
     {
       value: '3',
-      label: { es: 'concursos de programación', en: 'programming contests' } satisfies L10n,
+      label: {
+        es: 'podios en concursos y hackathons',
+        en: 'contest and hackathon podiums',
+      } satisfies L10n,
     },
     {
       value: 'ES/EN',

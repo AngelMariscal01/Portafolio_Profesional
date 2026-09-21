@@ -25,6 +25,8 @@ export interface Award {
   title: L10n;
   issuer: L10n;
   year: string;
+  /** Where he finished. Omitted when it was participation only. */
+  placement?: L10n;
 }
 
 export const certifications: Certification[] = [
@@ -71,38 +73,50 @@ export const certifications: Certification[] = [
 
 export const education: EducationItem[] = [
   {
-    id: 'itszamora',
+    id: 'tecnm',
     degree: {
       es: 'Ingeniería en Sistemas Computacionales',
       en: 'B.Eng. in Computer Systems Engineering',
     },
     institution: 'Tecnológico Nacional de México',
-    period: '2021 — 2025',
-    location: { es: 'Zamora, Michoacán, México', en: 'Zamora, Michoacán, Mexico' },
+    period: '2020 — 2025',
+    location: { es: 'Morelia y Zamora, Michoacán, México', en: 'Morelia and Zamora, Michoacán, Mexico' },
     detail: {
-      es: 'Especialidad en Cómputo en la Nube y Ciberseguridad. Residencias profesionales en desarrollo de una plataforma low-code asistida por IA generativa.',
-      en: 'Specialization in Cloud Computing and Cybersecurity. Professional residency developing a generative-AI-assisted low-code platform.',
+      es: 'Cursada en el campus Morelia (2020—2023) y concluida en el campus Zamora (2023—2025), con especialidad en Cómputo en la Nube y Ciberseguridad. Residencias profesionales en el desarrollo de una plataforma low-code asistida por IA generativa.',
+      en: 'Started at the Morelia campus (2020—2023) and completed at the Zamora campus (2023—2025), specializing in Cloud Computing and Cybersecurity. Professional residency developing a generative-AI-assisted low-code platform.',
     },
   },
 ];
 
 export const awards: Award[] = [
   {
-    id: 'coding-cup-2024',
-    title: { es: 'Coding Cup, edición Michoacán', en: 'Coding Cup, Michoacán edition' },
+    id: 'concurso-2023',
+    title: { es: 'XI Concurso Local de Programación', en: 'XI Local Programming Contest' },
     issuer: { es: 'Tecnológico Nacional de México', en: 'Tecnológico Nacional de México' },
-    year: '2024',
+    year: '2023',
+    placement: { es: '1.er lugar · categoría avanzada', en: '1st place · advanced category' },
   },
   {
     id: 'concurso-2024',
     title: { es: 'XII Concurso Local de Programación', en: 'XII Local Programming Contest' },
     issuer: { es: 'Tecnológico Nacional de México', en: 'Tecnológico Nacional de México' },
     year: '2024',
+    placement: { es: '2.º lugar · categoría libre', en: '2nd place · open category' },
   },
   {
-    id: 'concurso-2023',
-    title: { es: 'XI Concurso Local de Programación', en: 'XI Local Programming Contest' },
+    id: 'hackathon-itesz-2024',
+    title: { es: 'Hackathon ITESZ', en: 'ITESZ Hackathon' },
+    issuer: {
+      es: 'Instituto Tecnológico de Estudios Superiores de Zamora',
+      en: 'Instituto Tecnológico de Estudios Superiores de Zamora',
+    },
+    year: '2024',
+    placement: { es: '2.º lugar', en: '2nd place' },
+  },
+  {
+    id: 'coding-cup-2024',
+    title: { es: 'Coding Cup, edición Michoacán', en: 'Coding Cup, Michoacán edition' },
     issuer: { es: 'Tecnológico Nacional de México', en: 'Tecnológico Nacional de México' },
-    year: '2023',
+    year: '2024',
   },
 ];
