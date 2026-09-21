@@ -116,6 +116,14 @@
     height: auto;
   }
 
+  /* A modal <dialog> is centred by the UA stylesheet through `margin: auto`
+     against `inset: 0`. Tailwind's preflight zeroes the margin on every
+     element, dialog included, which pins the modal to the top-left corner.
+     Restore it only for the modal state, so a non-modal dialog is unaffected. */
+  dialog:modal {
+    margin: auto;
+  }
+
   /* Dates and counters should line up in a column. */
   time,
   .tnum {

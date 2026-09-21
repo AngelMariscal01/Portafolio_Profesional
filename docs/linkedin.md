@@ -97,7 +97,7 @@ Qué significa eso en la práctica:
 
 Antes de la IA generativa construí aplicaciones de escritorio sobre Linux embebido, integraciones en C# con sistemas ERP y pipelines de datos en la nube. Esa base sigue apareciendo todos los días: la intuición para depurar, el cuidado con el costo, y la costumbre de desconfiar de una salida que se ve bien pero no lo está.
 
-Ingeniero en Sistemas Computacionales con especialidad en Cómputo en la Nube y Ciberseguridad. AWS Certified AI Practitioner y Huawei Cloud Developer Associate.
+Ingeniero en Sistemas Computacionales con especialidad en Cómputo en la Nube y Ciberseguridad. AWS Certified AI Practitioner y Huawei Cloud Developer Associate. Primer lugar en el XI Concurso Local de Programación del TecNM, categoría avanzada.
 
 Abierto a roles remotos en LATAM y México.
 
@@ -124,7 +124,7 @@ What that means in practice:
 
 Before generative AI I built embedded Linux desktop applications, C# integrations with ERP systems, and cloud data pipelines. That foundation shows up daily: the instinct for debugging, the care about cost, and the habit of distrusting an output that looks right but isn't.
 
-Computer Systems Engineer specialized in Cloud Computing and Cybersecurity. AWS Certified AI Practitioner and Huawei Cloud Developer Associate.
+Computer Systems Engineer specialized in Cloud Computing and Cybersecurity. AWS Certified AI Practitioner and Huawei Cloud Developer Associate. First place in the TecNM XI Local Programming Contest, advanced category.
 
 Open to remote roles across LATAM and Mexico.
 
@@ -238,15 +238,23 @@ trabajado» que existe.
 ## 7. Formación, certificaciones y logros
 
 - **Formación:** Ingeniería en Sistemas Computacionales, Tecnológico Nacional de
-  México, 2021–2025. En la descripción: *Especialidad en Cómputo en la Nube y
-  Ciberseguridad. Residencias profesionales en el desarrollo de una plataforma
-  low-code asistida por IA generativa.*
+  México, 2020–2025. Fue la misma carrera con cambio de plantel, así que va como
+  **una sola entrada**, no dos: LinkedIn muestra dos entradas de la misma carrera
+  como si la hubieras empezado dos veces. En la descripción: *Cursada en el campus
+  Morelia (2020–2023) y concluida en el campus Zamora (2023–2025). Especialidad en
+  Cómputo en la Nube y Ciberseguridad. Residencias profesionales en el desarrollo
+  de una plataforma low-code asistida por IA generativa.*
 - **Licencias y certificaciones:** las tres que ya tienes. Verifica que la de
   AWS lleve el **ID de credencial y la URL de Credly** — sin eso LinkedIn no la
   muestra como verificada.
-- **Honores y premios:** los tres concursos de programación, cada uno como
-  entrada propia. Son señal de fundamentos de algoritmos, que es justo lo que un
-  entrevistador técnico duda de un perfil autodidacta en IA.
+- **Honores y premios:** cuatro entradas, y **pon el lugar en el título**, no
+  solo el nombre del concurso. Son la señal más directa de fundamentos de
+  algoritmos, que es justo de lo que un entrevistador técnico duda ante un perfil
+  de IA:
+  - *1.er lugar — XI Concurso Local de Programación, categoría avanzada* · TecNM · 2023
+  - *2.º lugar — XII Concurso Local de Programación, categoría libre* · TecNM · 2024
+  - *2.º lugar — Hackathon ITESZ* · Instituto Tecnológico de Estudios Superiores de Zamora · 2024
+  - *Coding Cup, edición Michoacán* · TecNM · 2024
 - **Idiomas:** español (nativo o bilingüe), inglés (**competencia profesional**).
   Si tu inglés hablado aún no está ahí, pon *competencia profesional limitada* —
   es mejor que te descarten por eso ahora que en una entrevista.
