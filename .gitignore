@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# LaTeX build artefacts (the PDFs in public/cv are committed)
+cv/*.aux
+cv/*.log
+cv/*.out
+cv/*.synctex.gz

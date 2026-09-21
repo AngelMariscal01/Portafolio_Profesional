@@ -1,0 +1,73 @@
+---
+import Section from './Section.astro';
+import Icon from './Icon.astro';
+import { profile } from '../content/profile';
+import { useTranslations, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+/** Three claims about how he works. Kept short on purpose. */
+const pillars = [
+  {
+    title: { es: 'Agentes, no demos', en: 'Agents, not demos' },
+    body: {
+      es: 'Un prototipo que contesta bonito no es un sistema. Lo que me importa es el manejo de errores, la validación antes de ejecutar y la observabilidad que te deja depurar en producción.',
+      en: 'A prototype that answers nicely is not a system. What matters to me is error handling, validating before executing, and the observability that lets you debug in production.',
+    },
+  },
+  {
+    title: { es: 'De punta a punta', en: 'End to end' },
+    body: {
+      es: 'Python para el agente, TypeScript para el producto, AWS para lo que lo sostiene. Los sistemas agénticos se rompen en las costuras entre capas, y cubrir las tres me deja arreglarlas.',
+      en: 'Python for the agent, TypeScript for the product, AWS for what holds it up. Agentic systems break at the seams between layers, and covering all three lets me fix them.',
+    },
+  },
+  {
+    title: { es: 'Una herramienta, no un reemplazo', en: 'A tool, not a replacement' },
+    body: {
+      es: 'La IA que vale la pena construir se lleva la parte repetitiva y le devuelve a la persona el tiempo para lo que sí exige criterio. Empiezo por el proceso manual que duele y trabajo hacia atrás hasta la arquitectura.',
+      en: 'The AI worth building takes over the repetitive part and gives the person back their time for the work that actually needs judgment. I start from the manual process that hurts and work backwards to the architecture.',
+    },
+  },
+];
+---
+
+<Section id="sobre-mi" index="01" eyebrow={t('sectionProfile')} title={t('sectionProfileLead')}>
+  <div class="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+    <div class="prose-bio reveal max-w-2xl text-base leading-relaxed text-muted">
+      {profile.bio[lang].map((paragraph) => <p>{paragraph}</p>)}
+
+      <div class="mt-8 flex flex-wrap gap-2.5">
+        <a href="#contacto" class="btn btn-primary">
+          {t('heroCtaContact')}
+          <Icon name="arrow-right" size={15} />
+        </a>
+        <a href={profile.cv[lang]} download class="btn btn-ghost">
+          <Icon name="download" size={15} />
+          {t('heroCtaCv')}
+        </a>
+      </div>
+    </div>
+
+    <ul class="reveal self-start">
+      {
+        pillars.map((pillar, i) => (
+          <li
+            class:list={[
+              'border-t border-line py-5',
+              i === pillars.length - 1 && 'border-b',
+            ]}
+          >
+            <h3 class="text-sm font-medium">{pillar.title[lang]}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{pillar.body[lang]}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Section>

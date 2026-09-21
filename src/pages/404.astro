@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ui } from '../content/site';
+---
+
+<Layout lang="es" title="404 — Angel Mariscal" path="/404" noindex>
+  <main class="grid min-h-screen place-items-center px-6">
+    <div class="text-center">
+      <p class="eyebrow">404</p>
+      <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">{ui.notFoundTitle.es}</h1>
+      <p class="mt-3 text-muted">{ui.notFoundBody.es}</p>
+      <p class="mt-2 text-sm text-subtle">{ui.notFoundBody.en}</p>
+      <a href="/" class="btn btn-primary mt-8">{ui.notFoundCta.es}</a>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,59 @@
+---
+import Icon from './Icon.astro';
+import { profile } from '../content/profile';
+import { useTranslations, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line py-10">
+  <div class="container-page flex flex-col items-center justify-between gap-5 sm:flex-row">
+    <div class="text-center sm:text-left">
+      <p class="text-sm font-medium">{profile.name}</p>
+      <p class="mt-1 text-xs text-subtle">
+        &copy; {year} · {t('footerRights')} · {t('footerBuilt')}
+      </p>
+    </div>
+
+    <div class="flex items-center gap-1">
+      <a
+        href={profile.contact.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        class="grid h-9 w-9 place-items-center rounded border border-line text-subtle transition-colors hover:border-accent hover:text-accent"
+      >
+        <Icon name="linkedin" size={16} />
+      </a>
+      <a
+        href={profile.contact.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        class="grid h-9 w-9 place-items-center rounded border border-line text-subtle transition-colors hover:border-accent hover:text-accent"
+      >
+        <Icon name="github" size={16} />
+      </a>
+      <a
+        href={`mailto:${profile.contact.email}`}
+        aria-label={t('contactEmail')}
+        class="grid h-9 w-9 place-items-center rounded border border-line text-subtle transition-colors hover:border-accent hover:text-accent"
+      >
+        <Icon name="mail" size={16} />
+      </a>
+      <a
+        href="#top"
+        aria-label="Back to top"
+        class="ml-1.5 grid h-9 w-9 place-items-center rounded border border-line text-subtle transition-colors hover:border-accent hover:text-accent"
+      >
+        <Icon name="arrow-down" size={16} class="rotate-180" />
+      </a>
+    </div>
+  </div>
+</footer>

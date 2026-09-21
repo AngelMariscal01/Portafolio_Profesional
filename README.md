@@ -1,43 +1,67 @@
-# Astro Starter Kit: Minimal
+# Portafolio — Angel David Mariscal Soto
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Sitio personal bilingüe (ES/EN) construido con Astro, islas de React y
+Tailwind CSS, más las fuentes LaTeX del CV.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Producción: <https://portafolio-angeldavidmariscalsoto-delta.vercel.app>
 
-## 🚀 Project Structure
+## Comandos
 
-Inside of your Astro project, you'll see the following folders and files:
+| Comando | Qué hace |
+| --- | --- |
+| `npm install` | Instala dependencias |
+| `npm run dev` | Servidor local en `localhost:4321` |
+| `npm run build` | Compila el sitio estático a `./dist/` |
+| `npm run preview` | Previsualiza el build antes de desplegar |
+| `./cv/build.sh` | Compila los dos CV y los copia a `public/cv/` |
+
+## Estructura
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── content/          # Todo el contenido, bilingüe. Es la única fuente de verdad.
+│   ├── profile.ts    #   Datos personales, bio, contacto, métricas del hero
+│   ├── experience.ts #   Puestos y logros
+│   ├── projects.ts   #   Proyectos, con problema / contribución / stack
+│   ├── skills.ts     #   Stack agrupado (también alimenta el JSON-LD)
+│   ├── credentials.ts#   Certificaciones, formación, concursos
+│   ├── site.ts       #   Navegación, metadatos y cadenas de interfaz
+│   └── types.ts      #   Lang, L10n y los helpers de traducción
+├── lib/              # i18n e iconos inline
+├── components/       # Secciones en .astro (cero JS) + islas de React
+│   └── react/        #   ProjectsGrid: filtro y modal accesible
+├── layouts/          # Layout.astro: SEO, hreflang, JSON-LD, tema
+└── pages/
+    ├── index.astro   # Español (raíz)
+    ├── en/index.astro# Inglés
+    └── 404.astro
+cv/                   # Fuentes LaTeX del CV (ver cv/README.md)
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Cómo editar el contenido
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Todo el texto vive en `src/content/`. Cada cadena es un objeto
+`{ es: '…', en: '…' }`, así que ambos idiomas se editan juntos y no se pueden
+desincronizar sin que TypeScript se queje.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Para agregar un proyecto, añade una entrada a `src/content/projects.ts`. Los
+campos `problem` y `contributions` son los que lee un reclutador: describe el
+problema real y qué construiste tú, no la lista de funcionalidades.
 
-## 🧞 Commands
+Los proyectos marcados con `confidential: true` muestran una nota en lugar de un
+enlace al repositorio.
 
-All commands are run from the root of the project, from a terminal:
+## Decisiones de arquitectura
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Rutas por idioma, no toggle en cliente.** `/` es español y `/en` inglés, con
+  `hreflang` y `canonical` correctos, para que Google indexe ambas versiones.
+  Un toggle en JavaScript deja una sola URL indexable.
+- **Cero JavaScript salvo donde hace falta.** Las secciones son `.astro` puro.
+  La única isla de React es la retícula de proyectos, hidratada con
+  `client:visible`, porque ahí sí hay estado (filtro y modal).
+- **El modal usa `<dialog>` nativo**, que trae gratis trampa de foco, cierre con
+  Escape y `aria-modal`.
+- **El tema se resuelve antes del primer pintado** con un script inline en
+  `Layout.astro`, para que no haya destello de tema claro.
+- **JSON-LD `Person`** con `knowsAbout` generado desde `skills.ts`, para que el
+  stack sea legible por máquinas además de por personas.

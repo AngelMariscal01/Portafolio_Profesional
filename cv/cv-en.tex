@@ -1,0 +1,125 @@
+%% Angel David Mariscal Soto — resume (English)
+%% Build:  pdflatex -interaction=nonstopmode cv-en.tex
+%%
+%% Keep this to one page. If you add a role, cut a bullet somewhere else.
+\documentclass{atscv}
+
+% PDF metadata. Several parsers read these fields before touching the body.
+\hypersetup{
+  pdftitle={Angel David Mariscal Soto - Generative AI Engineer - Resume},
+  pdfauthor={Angel David Mariscal Soto},
+  pdfsubject={Generative AI and Agentic Systems Engineer},
+  pdfkeywords={Generative AI, AI Engineer, Amazon Bedrock, Bedrock AgentCore,
+    multi-agent systems, LLM, RAG, Claude, prompt engineering, Python,
+    AWS Lambda, AWS CDK, serverless, TypeScript, React, React Native, Node.js,
+    Java, Spring Boot, SQL, Docker, machine learning, cloud, remote, LATAM,
+    Mexico}
+}
+
+\begin{document}
+\selectlanguage{english}
+
+% ------------------------------------------------------------------- header
+\cvname{Angel David Mariscal Soto}
+\cvtitle{Generative AI \& Agentic Systems Engineer}
+\cvcontact{%
+  Zamora, Michoacán, Mexico (GMT-6) \cvsep{} Open to remote
+  \cvsep{} +52 351 193 2430
+  \cvsep{} \href{mailto:angel.mariscal.soto@gmail.com}{angel.mariscal.soto@gmail.com}
+}
+\cvcontact{%
+  \href{https://www.linkedin.com/in/angel-david-mariscal-soto-b5235925a/}{linkedin.com/in/angel-david-mariscal-soto}
+  \cvsep{} \href{https://github.com/AngelMariscal01}{github.com/AngelMariscal01}
+  \cvsep{} \href{https://portafolio-angeldavidmariscalsoto-delta.vercel.app}{portfolio}
+}
+
+% ------------------------------------------------------------------ summary
+\cvsection{Summary}
+\cvsummary{%
+Computer Systems Engineer with 3+ years building software and 1+ year shipping
+production generative AI. I design multi-agent systems on Amazon Bedrock and
+Bedrock AgentCore, the serverless AWS APIs that connect them to business
+systems, and the React and TypeScript products on top. AWS Certified AI
+Practitioner, bilingual Spanish/English, open to remote roles.%
+}
+
+% ------------------------------------------------------------------- skills
+\cvsection{Technical Skills}
+\cvskill{Generative AI \& Agents}{Amazon Bedrock, Bedrock AgentCore, Claude
+  (Sonnet/Opus), Strands Agents, LangChain, multi-agent orchestration, tool use
+  and function calling, RAG, prompt engineering, guardrails, MCP, LLM observability}
+\cvskill{Cloud \& DevOps}{AWS (Lambda, CDK, Cognito, S3, DynamoDB, ECR, API
+  Gateway, IAM, VPC, Copilot), Google Cloud (Run, Functions, BigQuery), Huawei
+  Cloud, Docker, CI/CD, Git, GitHub Actions, Bitbucket Pipelines, Linux}
+\cvskill{Backend \& Data}{Python, Java, C\#, SQL; Node.js, Express, Spring
+  Boot, FastAPI, REST APIs, serverless, WebSockets; SQL Server, PostgreSQL,
+  MySQL, SQLite, Redis/Valkey, Pandas, Scikit-learn, XGBoost, ETL, Power BI}
+\cvskill{Frontend \& Mobile}{TypeScript, React, React Native, Expo, Astro,
+  Tailwind CSS, Monaco Editor, offline-first architecture, Vite, Vitest, Jest}
+
+% --------------------------------------------------------------- experience
+\cvsection{Professional Experience}
+
+\cventry{Generative AI Engineer}{Irakani (Iteradapta)}{Remote, Mexico}{Jun 2025 -- Present}
+\begin{cvbullets}
+  \item Designed and shipped production AI agents on Amazon Bedrock AgentCore
+        with Claude Sonnet 4.5, letting non-technical users query in natural
+        language data that used to require SQL or engineering support.
+  \item Architected a multi-agent system in Python where an orchestrator
+        classifies intent, delegates to domain-specialized agents and
+        consolidates the answer, replacing an undebuggable monolithic prompt.
+  \item Built the tool-use layer connecting agents to business APIs, with
+        execution-plan validation, structured error handling and conversational
+        memory scoped per user and workspace.
+  \item Owned the feature end to end: Python agents, serverless AWS Lambda APIs,
+        React and TypeScript interface, and containerized deployment.
+\end{cvbullets}
+
+\cventry{Application Developer}{Irakani (Iteradapta)}{Remote, Mexico}{Sep 2024 -- Jun 2025}
+\begin{cvbullets}
+  \item Designed and implemented a C\# integration interface with a commercial
+        ERP system, removing manual data re-entry between platforms.%
+  \item Developed and maintained internal business applications in Java and SQL
+        Server, optimizing schemas and queries for high-volume reporting.
+\end{cvbullets}
+
+\cventry{Software Developer}{SightWise Tech}{Mexico}{Jun 2023 -- Mar 2024}
+\begin{cvbullets}
+  \item Built a Python and PyQt desktop application on embedded Linux
+        (Raspberry Pi) replacing a manual product-evaluation process with
+        automated condition classification, adding user authentication and
+        encryption of sensitive data under secure development practices.
+\end{cvbullets}
+
+% ----------------------------------------------------------------- projects
+\cvsection{Selected Projects}
+
+\cvproject{Offline-First Enterprise Mobile Application}{React Native, Expo, TypeScript, SQLite, Firebase, EAS Build}{2025}
+\begin{cvbullets}
+  \item Local SQLite store with an ordered event queue; background sync replays
+        pending events unattended on reconnect. Monorepo with a white-label
+        build pipeline serving multiple clients from one codebase.
+\end{cvbullets}
+
+\cvproject{Mini Donas Arenita, Ordering System}{React, Node.js, Express, PostgreSQL, Vercel}{2025}
+\begin{cvbullets}
+  \item Customer portal and admin panel replacing manual order taking: catalog,
+        cart, order lifecycle, inventory control.
+        \href{https://github.com/AngelMariscal01/MDA}{github.com/AngelMariscal01/MDA}
+\end{cvbullets}
+
+% ---------------------------------------------------------------- education
+\cvsection{Education}
+\cvline{\textbf{B.Eng. Computer Systems Engineering}, Tecnológico Nacional de México. Cloud and Cybersecurity track.}{\textbf{2021 -- 2025}}
+
+% ----------------------------------------------------------- certifications
+\cvsection{Certifications}
+\cvline{\textbf{AWS Certified AI Practitioner}, Amazon Web Services}{2025}
+\cvline{\textbf{Huawei Cloud Developer Associate (HCCDA -- Tech Essentials)}, Huawei Cloud}{2025}
+\cvline{\textbf{Data Science Bootcamp}, Soy Henry}{2024}
+
+% ------------------------------------------------- languages & recognition
+\cvsection{Languages and Recognition}
+\cvline{\textbf{Languages}: Spanish (native), English (professional). Awards: Coding Cup Michoacán, two TecNM programming contests.}{}
+
+\end{document}
