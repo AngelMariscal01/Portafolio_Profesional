@@ -99,7 +99,10 @@ export const profile = {
     },
     {
       name: { es: 'Inglés', en: 'English' } satisfies L10n,
-      level: { es: 'Profesional (lectura técnica y comunicación escrita)', en: 'Professional working proficiency' } satisfies L10n,
+      level: {
+        es: 'Profesional en lectura técnica y comunicación escrita',
+        en: 'Professional reading and written communication',
+      } satisfies L10n,
     },
   ],
 };
