@@ -1,0 +1,127 @@
+%% Angel David Mariscal Soto — currículum (español)
+%% Compilar:  pdflatex -interaction=nonstopmode cv-es.tex
+%%
+%% Mantener en una página. Si agregas un puesto, recorta una viñeta en otro.
+\documentclass{atscv}
+
+% Metadatos del PDF. Varios analizadores los leen antes que el cuerpo.
+\hypersetup{
+  pdftitle={Angel David Mariscal Soto - Ingeniero de IA Generativa - CV},
+  pdfauthor={Angel David Mariscal Soto},
+  pdfsubject={Ingeniero de IA Generativa y Sistemas Agenticos},
+  pdfkeywords={IA Generativa, Inteligencia Artificial, Ingeniero de IA,
+    Amazon Bedrock, Bedrock AgentCore, sistemas multiagente, LLM, RAG, Claude,
+    prompt engineering, Python, AWS Lambda, AWS CDK, serverless, TypeScript,
+    React, React Native, Node.js, Java, Spring Boot, SQL, Docker,
+    machine learning, nube, cloud, remoto, LATAM, Mexico}
+}
+
+\begin{document}
+\selectlanguage{spanish}
+
+% ------------------------------------------------------------- encabezado
+\cvname{Angel David Mariscal Soto}
+\cvtitle{Ingeniero de IA Generativa y Sistemas Agénticos}
+\cvcontact{%
+  Zamora, Michoacán, México (GMT-6) \cvsep{} Disponible para remoto
+  \cvsep{} +52 351 193 2430
+  \cvsep{} \href{mailto:angel.mariscal.soto@gmail.com}{angel.mariscal.soto@gmail.com}
+}
+\cvcontact{%
+  \href{https://www.linkedin.com/in/angel-david-mariscal-soto-b5235925a/}{linkedin.com/in/angel-david-mariscal-soto}
+  \cvsep{} \href{https://github.com/AngelMariscal01}{github.com/AngelMariscal01}
+  \cvsep{} \href{https://portafolio-angeldavidmariscalsoto-delta.vercel.app}{portafolio}
+}
+
+% --------------------------------------------------------------- perfil
+\cvsection{Perfil profesional}
+\cvsummary{%
+Ingeniero en Sistemas Computacionales con 3+ años construyendo software y 1+
+año llevando IA generativa a producción. Diseño sistemas multiagente sobre
+Amazon Bedrock y Bedrock AgentCore, las APIs serverless en AWS que los conectan
+con sistemas de negocio, y los productos en React y TypeScript que los exponen.
+AWS Certified AI Practitioner, bilingüe español/inglés, abierto a roles remotos.%
+}
+
+% ------------------------------------------------------------ competencias
+\cvsection{Competencias técnicas}
+\cvskill{IA Generativa y Agentes}{Amazon Bedrock, Bedrock AgentCore, Claude
+  (Sonnet/Opus), Strands Agents, LangChain, orquestación multiagente, tool use
+  y function calling, RAG, prompt engineering, guardrails, MCP, observabilidad
+  de LLM}
+\cvskill{Nube y DevOps}{AWS (Lambda, CDK, Cognito, S3, DynamoDB, ECR, API
+  Gateway, IAM, VPC, Copilot), Google Cloud (Run, Functions, BigQuery), Huawei
+  Cloud, Docker, CI/CD, Git, GitHub Actions, Bitbucket Pipelines, Linux}
+\cvskill{Backend y Datos}{Python, Java, C\#, SQL; Node.js, Express, Spring
+  Boot, FastAPI, APIs REST, serverless, WebSockets; SQL Server, PostgreSQL,
+  MySQL, SQLite, Redis/Valkey, Pandas, Scikit-learn, XGBoost, ETL, Power BI}
+\cvskill{Frontend y Móvil}{TypeScript, React, React Native, Expo, Astro,
+  Tailwind CSS, Monaco Editor, arquitectura offline-first, Vite, Vitest, Jest}
+
+% ------------------------------------------------------------- experiencia
+\cvsection{Experiencia profesional}
+
+\cventry{Ingeniero de IA Generativa}{Irakani (Iteradapta)}{Remoto, México}{Jun 2025 -- Actualidad}
+\begin{cvbullets}
+  \item Diseñé y llevé a producción agentes de IA sobre Amazon Bedrock
+        AgentCore con Claude Sonnet 4.5, permitiendo a usuarios no técnicos
+        consultar en lenguaje natural información que antes exigía SQL o
+        soporte de ingeniería.
+  \item Definí una arquitectura multiagente en Python donde un orquestador
+        interpreta la intención, delega en agentes especializados y consolida
+        la respuesta, sustituyendo un prompt monolítico indepurable.
+  \item Construí la capa de herramientas que conecta los agentes con las APIs
+        de negocio, con validación de planes, manejo estructurado de errores y
+        memoria conversacional por usuario y espacio de trabajo.
+  \item Cubrí el ciclo completo: agentes en Python, APIs serverless en AWS
+        Lambda, interfaz en React y TypeScript, y despliegue en contenedores.
+\end{cvbullets}
+
+\cventry{Desarrollador de Aplicaciones}{Irakani (Iteradapta)}{Remoto, México}{Sep 2024 -- Jun 2025}
+\begin{cvbullets}
+  \item Diseñé e implementé una interfaz de integración en C\# con un sistema
+        ERP comercial, eliminando la recaptura manual de datos.
+  \item Desarrollé y mantuve aplicaciones de negocio internas en Java y SQL
+        Server, optimizando esquemas y consultas para reportes de alto volumen.
+\end{cvbullets}
+
+\cventry{Desarrollador de Software}{SightWise Tech}{México}{Jun 2023 -- Mar 2024}
+\begin{cvbullets}
+  \item Desarrollé una aplicación de escritorio en Python y PyQt sobre Linux
+        embebido (Raspberry Pi) que sustituyó un proceso manual de evaluación
+        de producto por clasificación automática, con autenticación de usuarios
+        y cifrado de datos sensibles bajo prácticas de desarrollo seguro.
+\end{cvbullets}
+
+% ---------------------------------------------------------------- proyectos
+\cvsection{Proyectos destacados}
+
+\cvproject{Aplicación móvil empresarial offline-first}{React Native, Expo, TypeScript, SQLite, Firebase, EAS Build}{2025}
+\begin{cvbullets}
+  \item Almacenamiento local en SQLite con cola de eventos ordenada; la
+        sincronización en segundo plano reenvía los pendientes al reconectar.
+        Monorepo con pipeline de marca blanca multicliente.
+\end{cvbullets}
+
+\cvproject{Mini Donas Arenita, sistema de pedidos}{React, Node.js, Express, PostgreSQL, Vercel}{2025}
+\begin{cvbullets}
+  \item Portal de clientes y panel administrativo que sustituyeron la toma
+        manual de pedidos: catálogo, carrito, ciclo de vida del pedido e
+        inventario. \href{https://github.com/AngelMariscal01/MDA}{github.com/AngelMariscal01/MDA}
+\end{cvbullets}
+
+% ---------------------------------------------------------------- formación
+\cvsection{Formación}
+\cvline{\textbf{Ingeniería en Sistemas Computacionales}, Tecnológico Nacional de México. Especialidad en Nube y Ciberseguridad.}{\textbf{2021 -- 2025}}
+
+% ---------------------------------------------------------- certificaciones
+\cvsection{Certificaciones}
+\cvline{\textbf{AWS Certified AI Practitioner}, Amazon Web Services}{2025}
+\cvline{\textbf{Huawei Cloud Developer Associate (HCCDA -- Tech Essentials)}, Huawei Cloud}{2025}
+\cvline{\textbf{Bootcamp de Data Science}, Soy Henry}{2024}
+
+% ------------------------------------------------------- idiomas y logros
+\cvsection{Idiomas y reconocimientos}
+\cvline{\textbf{Idiomas}: español (nativo), inglés (profesional). Concursos: Coding Cup Michoacán y dos concursos del TecNM.}{}
+
+\end{document}

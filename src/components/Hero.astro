@@ -1,0 +1,97 @@
+---
+import Icon from './Icon.astro';
+import { profile } from '../content/profile';
+import { useTranslations, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const socials = [
+  { icon: 'linkedin' as const, href: profile.contact.linkedin, label: 'LinkedIn' },
+  { icon: 'github' as const, href: profile.contact.github, label: 'GitHub' },
+  { icon: 'mail' as const, href: `mailto:${profile.contact.email}`, label: t('contactEmail') },
+];
+---
+
+<section id="top" class="pt-32 pb-16 md:pt-40 md:pb-20">
+  <div class="container-page">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_14rem] lg:items-end lg:gap-16">
+      <div class="max-w-3xl">
+        {
+          profile.availability.available && (
+            <p class="reveal flex items-center gap-2.5 eyebrow">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+              {profile.availability.label[lang]}
+            </p>
+          )
+        }
+
+        <h1 class="reveal mt-6 text-[2.75rem] leading-[1.06] tracking-[-0.015em] sm:text-6xl lg:text-[4.25rem]">
+          {profile.name}
+        </h1>
+
+        <p class="reveal mt-5 text-lg text-ink sm:text-xl">
+          {profile.role[lang]}
+        </p>
+
+        <p class="reveal mt-4 max-w-2xl text-base leading-relaxed text-muted">
+          {profile.tagline[lang]}
+        </p>
+
+        <div class="reveal mt-9 flex flex-wrap items-center gap-2.5">
+          <a href="#proyectos" class="btn btn-primary">
+            {t('heroCtaProjects')}
+            <Icon name="arrow-right" size={15} />
+          </a>
+          <a href={profile.cv[lang]} download class="btn btn-ghost">
+            <Icon name="download" size={15} />
+            {t('heroCtaCv')}
+          </a>
+
+          <div class="flex items-center gap-4 sm:ml-2 sm:border-l sm:border-line sm:pl-4">
+            {
+              socials.map((social) => (
+                <a
+                  href={social.href}
+                  target={social.href.startsWith('mailto') ? undefined : '_blank'}
+                  rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                  aria-label={social.label}
+                  class="text-subtle transition-colors hover:text-accent"
+                >
+                  <Icon name={social.icon} size={18} />
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal order-first lg:order-last">
+        <img
+          src="/images/profile.png"
+          alt={profile.name}
+          width="512"
+          height="512"
+          fetchpriority="high"
+          decoding="async"
+          class="w-36 rounded-md border border-line object-cover sm:w-44 lg:w-full"
+        />
+      </div>
+    </div>
+
+    <ul class="reveal mt-16 grid grid-cols-2 border-t border-line sm:grid-cols-4 md:mt-20">
+      {
+        profile.stats.map((stat) => (
+          <li class="border-b border-line px-1 py-5 sm:border-b-0 sm:border-r sm:last:border-r-0 sm:pr-6 sm:first:pl-0 [&:not(:first-child)]:sm:pl-6">
+            <span class="tnum block text-2xl text-ink">{stat.value}</span>
+            <span class="mt-1.5 block text-xs leading-snug text-subtle">{stat.label[lang]}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

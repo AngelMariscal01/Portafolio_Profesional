@@ -1,0 +1,38 @@
+---
+import Section from './Section.astro';
+import ProjectsGrid, { type ProjectsLabels } from './react/ProjectsGrid';
+import { categoryLabels, projects } from '../content/projects';
+import { useTranslations, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const labels: ProjectsLabels = {
+  all: t('labelAll'),
+  readMore: t('readMore'),
+  viewRepo: t('viewRepo'),
+  viewDemo: t('viewDemo'),
+  close: t('close'),
+  problem: t('labelProblem'),
+  contribution: t('labelContribution'),
+  outcome: t('labelOutcome'),
+  stack: t('labelStack'),
+  confidentialNote: t('confidentialNote'),
+  confidentialBadge: t('confidentialBadge'),
+  categories: {
+    professional: categoryLabels.professional[lang],
+    product: categoryLabels.product[lang],
+    data: categoryLabels.data[lang],
+  },
+};
+---
+
+<Section id="proyectos" index="03" eyebrow={t('sectionProjects')} title={t('sectionProjectsLead')}>
+  <div class="reveal">
+    <ProjectsGrid client:visible projects={projects} lang={lang} labels={labels} />
+  </div>
+</Section>
