@@ -15,7 +15,18 @@ export type JourneyVisual =
   | 'multi-agent'
   | 'mobile'
   | 'ecosystem'
+  | 'mayordomia'
   | 'closing';
+
+/** The AI tool he leaned on to build during each stretch. */
+export type JourneyTool = 'chatgpt' | 'ai-studio' | 'amazon-q' | 'kiro' | 'claude-code';
+
+export interface JourneyToolInfo {
+  name: string;
+  /** Fits under a couple of rail columns on a phone. */
+  short: string;
+  kind: L10n;
+}
 
 export interface JourneyConcept {
   label: L10n;
@@ -37,7 +48,16 @@ export interface JourneyChapter {
   /** The one sentence a reader should keep. */
   lesson: L10n;
   visual: JourneyVisual;
+  tool: JourneyTool;
 }
+
+export const toolLabels: Record<JourneyTool, JourneyToolInfo> = {
+  chatgpt: { name: 'ChatGPT', short: 'ChatGPT', kind: { es: 'chat', en: 'chat' } },
+  'ai-studio': { name: 'Google AI Studio', short: 'AI Studio', kind: { es: 'chat', en: 'chat' } },
+  'amazon-q': { name: 'Amazon Q', short: 'Amazon Q', kind: { es: 'asistente', en: 'assistant' } },
+  kiro: { name: 'Kiro', short: 'Kiro', kind: { es: 'IDE agéntico', en: 'agentic IDE' } },
+  'claude-code': { name: 'Claude Code', short: 'Claude Code', kind: { es: 'agente de código', en: 'coding agent' } },
+};
 
 export const journeyActs: L10n[] = [
   { es: 'Fundamentos', en: 'Foundations' },
@@ -87,6 +107,7 @@ export const journey: JourneyChapter[] = [
       en: 'The best solution is not always the biggest model. Problem first, tool second.',
     },
     visual: 'vision',
+    tool: 'chatgpt',
   },
   {
     id: 'bootcamp',
@@ -97,14 +118,16 @@ export const journey: JourneyChapter[] = [
     story: {
       es: [
         'Al cerrar el proyecto me quedé con la curiosidad por el machine learning y entré a un bootcamp de ciencia de datos de medio tiempo, en paralelo a la carrera.',
-        'Ahí armé las bases que hoy sostienen a cualquier agente: de dónde viene el dato, cómo se limpia, dónde vive y cómo se expone a otros sistemas.',
+        'Ahí entendí qué es un modelo de machine learning y cómo funciona una red neuronal, y armé las bases que hoy sostienen a cualquier agente: de dónde viene el dato, cómo se limpia, dónde vive y cómo se expone a otros sistemas.',
       ],
       en: [
         'After the project wrapped I was left curious about machine learning, so I joined a part-time data science bootcamp alongside my degree.',
-        'That is where I built the foundations every agent still stands on: where data comes from, how it gets cleaned, where it lives and how it is exposed to other systems.',
+        'That is where I learned what a machine learning model is and how a neural network works, and built the foundations every agent still stands on: where data comes from, how it gets cleaned, where it lives and how it is exposed to other systems.',
       ],
     },
     learned: [
+      c('Machine learning', 'Machine learning', 'models'),
+      c('Redes neuronales', 'Neural networks', 'models'),
       c('ETL', 'ETL', 'data'),
       c('EDA', 'EDA', 'data'),
       c('Ciclo de vida del dato', 'Data lifecycle', 'data'),
@@ -119,6 +142,7 @@ export const journey: JourneyChapter[] = [
       en: 'An agent is only as good as the data it can reach.',
     },
     visual: 'pipeline',
+    tool: 'chatgpt',
   },
   {
     id: 'irakani-dev',
@@ -152,6 +176,7 @@ export const journey: JourneyChapter[] = [
       en: 'A model is not a black box: every parameter changes the answer, and you need to know which one to move.',
     },
     visual: 'sampling',
+    tool: 'ai-studio',
   },
   {
     id: 'cloud-security',
@@ -180,6 +205,7 @@ export const journey: JourneyChapter[] = [
       en: 'Understanding how a system is attacked changes how you design its permissions.',
     },
     visual: 'cloud',
+    tool: 'ai-studio',
   },
   {
     id: 'aws-aip',
@@ -207,6 +233,7 @@ export const journey: JourneyChapter[] = [
       en: 'When the company bet on AI, I prepared to be the one who would take it to production.',
     },
     visual: 'cert',
+    tool: 'amazon-q',
   },
   {
     id: 'builder-v1',
@@ -233,6 +260,7 @@ export const journey: JourneyChapter[] = [
       en: 'A system prompt is executable documentation: if the framework is not explained well, the model will not get it either.',
     },
     visual: 'builder-v1',
+    tool: 'amazon-q',
   },
   {
     id: 'insight',
@@ -265,6 +293,7 @@ export const journey: JourneyChapter[] = [
       en: 'One runtime, many clients, zero data crossover: isolation is designed, not hoped for.',
     },
     visual: 'insight',
+    tool: 'kiro',
   },
   {
     id: 'builder-multi',
@@ -292,6 +321,7 @@ export const journey: JourneyChapter[] = [
       en: 'One agent per domain can be debugged; one giant prompt cannot.',
     },
     visual: 'multi-agent',
+    tool: 'kiro',
   },
   {
     id: 'mobile',
@@ -315,20 +345,21 @@ export const journey: JourneyChapter[] = [
       en: 'AI is useful where the work is: if the team is in the field, the agent should be too.',
     },
     visual: 'mobile',
+    tool: 'kiro',
   },
   {
     id: 'now',
     act: 2,
-    period: { es: 'Hoy', en: 'Today' },
+    period: { es: '2026', en: '2026' },
     place: { es: 'Irakani · Builder, Insight y MCP', en: 'Irakani · Builder, Insight and MCP' },
     title: { es: 'Agentes que hablan con otros agentes', en: 'Agents talking to other agents' },
     story: {
       es: [
-        'Hoy me concentro en la IA de Builder e Insight: caché, y más agentes en Builder —usuarios, roles, base de datos y uno que configura al propio agente de Insight—, siguiendo keynotes, cursos y documentación para no quedarme atrás.',
+        'Hoy me concentro en la IA de Builder e Insight, y las mejoras al Builder multiagente ya las hago con Claude Code: caché y más agentes —usuarios, roles, base de datos y uno que configura al propio agente de Insight—, siguiendo keynotes, cursos y documentación para no quedarme atrás.',
         'Construí dos servidores MCP. El de Builder deja que Hermes —el agente que creó el líder de plataforma para dar trazabilidad a proyectos, tareas y jornadas desde Microsoft Teams— consulte varios espacios a la vez a través del orquestador. El de Insight abre sus tools a cualquier agente externo, como Claude o Copilot.',
       ],
       en: [
-        'Today I focus on the AI in Builder and Insight: caching, and more Builder agents —users, roles, database, and one that configures the Insight agent itself— keeping up through keynotes, courses and documentation.',
+        'Today I focus on the AI in Builder and Insight, and I now build the multi-agent Builder improvements with Claude Code: caching and more agents —users, roles, database, and one that configures the Insight agent itself— keeping up through keynotes, courses and documentation.',
         'I built two MCP servers. Builder’s lets Hermes —the agent our platform lead created to track projects, tasks and work shifts from Microsoft Teams— query several workspaces at once through the orchestrator. Insight’s opens its tools to any external agent, such as Claude or Copilot.',
       ],
     },
@@ -342,6 +373,39 @@ export const journey: JourneyChapter[] = [
       en: 'The next step is not a smarter agent, but agents that collaborate through open protocols.',
     },
     visual: 'ecosystem',
+    tool: 'claude-code',
+  },
+  {
+    id: 'mayordomia',
+    act: 2,
+    period: { es: 'Hoy', en: 'Today' },
+    place: { es: 'MayordomIA · Proyecto personal', en: 'MayordomIA · Personal project' },
+    title: { es: 'Un agente con cuerpo', en: 'An agent with a body' },
+    story: {
+      es: [
+        'Hace unos meses empecé MayordomIA, un proyecto sin fines de lucro: un asistente doméstico estilo mayordomo que gestiona la casa, la agenda y la economía del hogar, pensado como plantilla para que cada hogar despliegue su propia instancia. Corre en una Raspberry Pi 4B: tres años después, otra vez una Pi.',
+        'Lo construyo exclusivamente con Claude Code, bajo AI-DLC: elaborar antes de construir, una unidad de trabajo por PR y cada decisión registrada como ADR. Ya tiene voz, Telegram y app web, reconoce quién le habla, y en simulación el robot navega la casa con ROS2 y Nav2 mientras un brazo de seis grados de libertad se prueba en MuJoCo.',
+      ],
+      en: [
+        'A few months ago I started MayordomIA, a non-profit project: a butler-style home assistant that runs the house, the calendar and the household budget, designed as a template so every home deploys its own instance. It runs on a Raspberry Pi 4B: three years later, a Pi again.',
+        'I build it exclusively with Claude Code, following AI-DLC: elaborate before building, one unit of work per PR and every decision recorded as an ADR. It already has voice, Telegram and a web app, recognizes who is speaking, and in simulation the robot navigates the house with ROS2 and Nav2 while a six-degree-of-freedom arm is tested in MuJoCo.',
+      ],
+    },
+    learned: [
+      c('Claude Code', 'Claude Code', 'agents'),
+      c('Confirmación humana', 'Human in the loop', 'agents'),
+      c('Voz: STT y TTS', 'Voice: STT & TTS', 'models'),
+      c('AI-DLC', 'AI-DLC', 'software'),
+      c('ADRs', 'ADRs', 'software'),
+      c('ROS2', 'ROS2', 'software'),
+      c('Simulación robótica', 'Robotics simulation', 'software'),
+    ],
+    lesson: {
+      es: 'Con un agente de código, el cuello de botella deja de ser escribir y pasa a ser decidir: elaborar, acotar y dejar registro de cada decisión.',
+      en: 'With a coding agent, the bottleneck stops being writing and becomes deciding: elaborate, scope and record every decision.',
+    },
+    visual: 'mayordomia',
+    tool: 'claude-code',
   },
   {
     id: 'next',
@@ -366,12 +430,14 @@ export const journey: JourneyChapter[] = [
         'Arquitectura multiagente: orquestador y subagentes por dominio, replicable por cliente.',
         'Interoperabilidad con MCP, para que agentes propios y externos compartan capacidades.',
         'Criterio de costo y seguridad: del modelo que descarté en una Raspberry Pi a la caché, el licenciamiento y el aislamiento de datos.',
+        'Desarrollo con agentes y con método: de ChatGPT a Claude Code, con decisiones registradas y una unidad de trabajo por PR.',
       ],
       en: [
         'Agents in production, not prototypes: multi-tenant, with memory, guardrails and observability.',
         'Multi-agent architecture: an orchestrator and domain sub-agents, replicable per client.',
         'Interoperability through MCP, so in-house and external agents share capabilities.',
         'Judgment on cost and security: from the model I dropped on a Raspberry Pi to caching, licensing and data isolation.',
+        'Building with agents, with method: from ChatGPT to Claude Code, with recorded decisions and one unit of work per PR.',
       ],
     },
     learned: [],
@@ -380,5 +446,6 @@ export const journey: JourneyChapter[] = [
       en: 'From asking ChatGPT questions to designing production multi-agent systems, in about three years.',
     },
     visual: 'closing',
+    tool: 'claude-code',
   },
 ];

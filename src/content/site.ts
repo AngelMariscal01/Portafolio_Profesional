@@ -73,6 +73,7 @@ export const ui = {
   journeyConcepts: { es: 'conceptos', en: 'concepts' },
   journeyIllustrative: { es: 'Ilustrativo', en: 'Illustrative' },
   journeyKeysHint: { es: '← → para navegar', en: '← → to navigate' },
+  journeyCopilot: { es: 'Copiloto de IA', en: 'AI copilot' },
 
   sectionExperience: { es: 'Experiencia', en: 'Experience' },
   sectionExperienceLead: {
