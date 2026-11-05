@@ -21,6 +21,7 @@ Producción: <https://portafolio-angeldavidmariscalsoto-delta.vercel.app>
 src/
 ├── content/          # Todo el contenido, bilingüe. Es la única fuente de verdad.
 │   ├── profile.ts    #   Datos personales, bio, contacto, métricas del hero
+│   ├── journey.ts    #   Capítulos de la trayectoria interactiva
 │   ├── experience.ts #   Puestos y logros
 │   ├── projects.ts   #   Proyectos, con problema / contribución / stack
 │   ├── skills.ts     #   Stack agrupado (también alimenta el JSON-LD)
@@ -29,7 +30,7 @@ src/
 │   └── types.ts      #   Lang, L10n y los helpers de traducción
 ├── lib/              # i18n e iconos inline
 ├── components/       # Secciones en .astro (cero JS) + islas de React
-│   └── react/        #   ProjectsGrid: filtro y modal accesible
+│   └── react/        #   ProjectsGrid (filtro y modal) y JourneyStage (trayectoria)
 ├── layouts/          # Layout.astro: SEO, hreflang, JSON-LD, tema
 └── pages/
     ├── index.astro   # Español (raíz)
@@ -57,8 +58,10 @@ enlace al repositorio.
   `hreflang` y `canonical` correctos, para que Google indexe ambas versiones.
   Un toggle en JavaScript deja una sola URL indexable.
 - **Cero JavaScript salvo donde hace falta.** Las secciones son `.astro` puro.
-  La única isla de React es la retícula de proyectos, hidratada con
-  `client:visible`, porque ahí sí hay estado (filtro y modal).
+  Hay dos islas de React, hidratadas con `client:visible` porque ahí sí hay
+  estado: la retícula de proyectos (filtro y modal) y la trayectoria
+  (capítulos, autoplay, modo presentación a pantalla completa y un diagrama
+  animado por capítulo, con animaciones CSS en vez de una librería).
 - **El modal usa `<dialog>` nativo**, que trae gratis trampa de foco, cierre con
   Escape y `aria-modal`.
 - **El tema se resuelve antes del primer pintado** con un script inline en

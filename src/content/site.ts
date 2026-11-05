@@ -10,6 +10,7 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { id: 'sobre-mi', label: { es: 'Perfil', en: 'Profile' } },
+  { id: 'trayectoria', label: { es: 'Trayectoria', en: 'Journey' } },
   { id: 'experiencia', label: { es: 'Experiencia', en: 'Experience' } },
   { id: 'proyectos', label: { es: 'Proyectos', en: 'Projects' } },
   { id: 'skills', label: { es: 'Stack', en: 'Stack' } },
@@ -49,6 +50,29 @@ export const ui = {
     es: 'Quién soy y cómo trabajo',
     en: 'Who I am and how I work',
   },
+
+  sectionJourney: { es: 'Trayectoria', en: 'Journey' },
+  sectionJourneyTitle: {
+    es: 'De una Raspberry Pi a agentes en producción',
+    en: 'From a Raspberry Pi to agents in production',
+  },
+  sectionJourneyLead: {
+    es: 'Cómo llegué a la IA agéntica, una capa a la vez. Recórrelo con las flechas, en automático o en modo presentación.',
+    en: 'How I got to agentic AI, one layer at a time. Step through with the arrows, on autoplay, or in presentation mode.',
+  },
+  journeyChapters: { es: 'Capítulos de la trayectoria', en: 'Journey chapters' },
+  journeyPrev: { es: 'Capítulo anterior', en: 'Previous chapter' },
+  journeyNext: { es: 'Capítulo siguiente', en: 'Next chapter' },
+  journeyPlay: { es: 'Reproducir', en: 'Play' },
+  journeyPause: { es: 'Pausar', en: 'Pause' },
+  journeyPresent: { es: 'Presentar', en: 'Present' },
+  journeyExitPresent: { es: 'Salir', en: 'Exit' },
+  journeyLearned: { es: 'Lo que aprendí', en: 'What I learned' },
+  journeyBring: { es: 'Lo que llevo', en: 'What I bring' },
+  journeyStack: { es: 'Stack acumulado', en: 'Accumulated stack' },
+  journeyConcepts: { es: 'conceptos', en: 'concepts' },
+  journeyIllustrative: { es: 'Ilustrativo', en: 'Illustrative' },
+  journeyKeysHint: { es: '← → para navegar', en: '← → to navigate' },
 
   sectionExperience: { es: 'Experiencia', en: 'Experience' },
   sectionExperienceLead: {
