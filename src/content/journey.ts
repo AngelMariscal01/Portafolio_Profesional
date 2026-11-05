@@ -355,11 +355,11 @@ export const journey: JourneyChapter[] = [
     title: { es: 'Agentes que hablan con otros agentes', en: 'Agents talking to other agents' },
     story: {
       es: [
-        'Hoy me concentro en la IA de Builder e Insight: caché, y más agentes en Builder —usuarios, roles, base de datos y uno que configura al propio agente de Insight—, siguiendo keynotes, cursos y documentación para no quedarme atrás.',
+        'Hoy me concentro en la IA de Builder e Insight, y las mejoras al Builder multiagente ya las hago con Claude Code: caché y más agentes —usuarios, roles, base de datos y uno que configura al propio agente de Insight—, siguiendo keynotes, cursos y documentación para no quedarme atrás.',
         'Construí dos servidores MCP. El de Builder deja que Hermes —el agente que creó el líder de plataforma para dar trazabilidad a proyectos, tareas y jornadas desde Microsoft Teams— consulte varios espacios a la vez a través del orquestador. El de Insight abre sus tools a cualquier agente externo, como Claude o Copilot.',
       ],
       en: [
-        'Today I focus on the AI in Builder and Insight: caching, and more Builder agents —users, roles, database, and one that configures the Insight agent itself— keeping up through keynotes, courses and documentation.',
+        'Today I focus on the AI in Builder and Insight, and I now build the multi-agent Builder improvements with Claude Code: caching and more agents —users, roles, database, and one that configures the Insight agent itself— keeping up through keynotes, courses and documentation.',
         'I built two MCP servers. Builder’s lets Hermes —the agent our platform lead created to track projects, tasks and work shifts from Microsoft Teams— query several workspaces at once through the orchestrator. Insight’s opens its tools to any external agent, such as Claude or Copilot.',
       ],
     },
