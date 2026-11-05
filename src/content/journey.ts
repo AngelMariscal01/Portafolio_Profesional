@@ -328,7 +328,7 @@ export const journey: JourneyChapter[] = [
     act: 2,
     period: { es: '2025 — 2026', en: '2025 — 2026' },
     place: { es: 'Irakani · App móvil', en: 'Irakani · Mobile app' },
-    title: { es: 'Insight, también en el celular', en: 'Insight on the phone too' },
+    title: { es: 'Insight en App Móvil', en: 'Insight in the Mobile App' },
     story: {
       es: [
         'La aplicación móvil estaba en Java y solo existía para Android. Quería llegar también a iOS, así que la rehíce en React Native.',
