@@ -442,8 +442,8 @@ export const journey: JourneyChapter[] = [
     },
     learned: [],
     lesson: {
-      es: 'De preguntarle cosas a ChatGPT a diseñar sistemas multiagente en producción, en unos tres años.',
-      en: 'From asking ChatGPT questions to designing production multi-agent systems, in about three years.',
+      es: 'De preguntarle cosas a ChatGPT a diseñar sistemas multiagente en producción, en tres años.',
+      en: 'From asking ChatGPT questions to designing production multi-agent systems, in three years.',
     },
     visual: 'closing',
     tool: 'claude-code',
