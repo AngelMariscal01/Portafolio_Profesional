@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { JourneyChapter, JourneyLayer } from '../../content/journey';
+import type { JourneyChapter, JourneyLayer, JourneyTool, JourneyToolInfo } from '../../content/journey';
 import type { L10n, Lang } from '../../content/types';
 
 /** Every label the island needs, already resolved to one language. */
@@ -17,6 +17,7 @@ export interface JourneyLabels {
   concepts: string;
   illustrative: string;
   keysHint: string;
+  copilot: string;
   ctaContact: string;
   ctaProjects: string;
 }
@@ -25,6 +26,7 @@ interface Props {
   chapters: JourneyChapter[];
   acts: L10n[];
   layers: Record<JourneyLayer, L10n>;
+  tools: Record<JourneyTool, JourneyToolInfo>;
   lang: Lang;
   labels: JourneyLabels;
 }
@@ -134,7 +136,10 @@ function Node({ children, active = false, className = '' }: { children: React.Re
 }
 
 /** A connector with a dashed current running along it. Horizontal from `sm`, vertical below. */
-function Wire({ active = true }: { active?: boolean }) {
+function Wire({ active = true, vertical = false }: { active?: boolean; vertical?: boolean }) {
+  if (vertical) {
+    return <span aria-hidden="true" className={`mx-auto block h-6 w-px ${active ? 'j-wire-v' : 'bg-line-strong'}`} />;
+  }
   return (
     <>
       <span
@@ -959,6 +964,92 @@ function EcosystemVisual({ lang }: { lang: Lang }) {
   );
 }
 
+function MayordomiaVisual({ lang }: { lang: Lang }) {
+  const channels = [T(lang, 'Voz', 'Voice'), 'Telegram', T(lang, 'App web', 'Web app')];
+  const tools = [
+    'Home Assistant',
+    T(lang, 'Agenda', 'Calendar'),
+    T(lang, 'Economía', 'Budget'),
+    T(lang, 'Recordatorios', 'Reminders'),
+    T(lang, 'Internet', 'Web search'),
+  ];
+  const phases = [
+    { id: 'F0', label: T(lang, 'Cerebro', 'Brain'), state: 'done' },
+    { id: 'F1', label: T(lang, 'Hogar', 'Home'), state: 'done' },
+    { id: 'F2', label: T(lang, 'Simulación', 'Simulation'), state: 'now' },
+    { id: 'F3', label: T(lang, 'Base móvil', 'Mobile base'), state: 'next' },
+    { id: 'F4', label: T(lang, 'Manipulación', 'Manipulation'), state: 'next' },
+  ];
+  const stats = [
+    { value: '27', label: 'ADRs' },
+    { value: '57', label: 'PRs' },
+    { value: '265', label: T(lang, 'tests del agente', 'agent tests') },
+  ];
+
+  return (
+    <div className="flex h-full flex-col gap-3">
+      <ul className="grid grid-cols-3 gap-2">
+        {channels.map((ch, i) => (
+          <li key={ch} className="j-pop" style={{ animationDelay: `${i * 120}ms` }}>
+            <Node className="text-center">{ch}</Node>
+          </li>
+        ))}
+      </ul>
+      <Wire vertical />
+
+      <div className="rounded-md border border-accent/50 p-3">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <p className="text-xs text-ink">{T(lang, 'Agente mayordomo', 'Butler agent')}</p>
+          <span className="chip !px-1.5 !py-0 !text-[0.6rem]">Raspberry Pi 4B</span>
+        </div>
+        <p className="mt-1 text-[0.65rem] text-subtle">
+          {T(lang, 'Memoria por persona · personalidades · identidad por voz', 'Per-person memory · personalities · voice identity')}
+        </p>
+        <ul className="mt-2.5 flex flex-wrap gap-1">
+          {tools.map((tool, i) => (
+            <li key={tool} className="j-pop rounded border border-line px-1.5 py-0.5 text-[0.65rem] text-muted" style={{ animationDelay: `${300 + i * 90}ms` }}>
+              {tool}
+            </li>
+          ))}
+          <li className="j-pop rounded border border-accent/60 bg-accent-soft px-1.5 py-0.5 text-[0.65rem] text-accent" style={{ animationDelay: '800ms' }}>
+            Robot · ROS2
+          </li>
+        </ul>
+      </div>
+      <Wire vertical />
+
+      <div className="grid grid-cols-2 gap-2">
+        <Node active>
+          Gazebo + Nav2
+          <span className="block text-[0.62rem] text-subtle">{T(lang, 'navega de cuarto a cuarto', 'room-to-room navigation')}</span>
+        </Node>
+        <Node>
+          MuJoCo
+          <span className="block text-[0.62rem] text-subtle">{T(lang, 'brazo de 6 GDL', '6-DoF arm')}</span>
+        </Node>
+      </div>
+
+      <ol className="mt-auto grid grid-cols-5 gap-1.5 pt-2">
+        {phases.map((p) => (
+          <li key={p.id} className="min-w-0">
+            <span className={`block h-1 rounded-full ${p.state === 'done' ? 'bg-accent' : p.state === 'now' ? 'j-wire' : 'bg-surface-2'}`} />
+            <p className={`mt-1.5 truncate text-[0.6rem] ${p.state === 'next' ? 'text-subtle' : 'text-ink'}`}>
+              <span className="tnum text-subtle">{p.id}</span> {p.label}
+            </p>
+          </li>
+        ))}
+      </ol>
+      <ul className="flex flex-wrap gap-x-5 gap-y-1 border-t border-line pt-3">
+        {stats.map((s) => (
+          <li key={s.label} className="text-xs text-subtle">
+            <span className="tnum font-serif text-xl text-ink">{s.value}</span> {s.label}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function Stat({ value, label, delay }: { value: number; label: string; delay: number }) {
   const v = useCountUp(value, 1200 + delay);
   return (
@@ -998,7 +1089,7 @@ function ClosingVisual({ lang, labels, onLeave }: { lang: Lang; labels: JourneyL
 
 // ------------------------------------------------------------------ stage
 
-export default function JourneyStage({ chapters, acts, layers, lang, labels }: Props) {
+export default function JourneyStage({ chapters, acts, layers, tools, lang, labels }: Props) {
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
@@ -1112,6 +1203,18 @@ export default function JourneyStage({ chapters, acts, layers, lang, labels }: P
     [acts, chapters, lang]
   );
 
+  /** Contiguous runs of chapters that share the same AI tool, for the copilot row. */
+  const toolSpans = useMemo(
+    () =>
+      chapters.reduce<{ tool: JourneyTool; from: number; to: number }[]>((runs, ch, i) => {
+        const prev = runs[runs.length - 1];
+        if (prev && prev.tool === ch.tool) prev.to = i;
+        else runs.push({ tool: ch.tool, from: i, to: i });
+        return runs;
+      }, []),
+    [chapters]
+  );
+
   const n = chapters.length;
   const inset = 100 / (2 * n);
   const progress = last === 0 ? 0 : index / last;
@@ -1138,6 +1241,8 @@ export default function JourneyStage({ chapters, acts, layers, lang, labels }: P
         return <MobileVisual lang={lang} />;
       case 'ecosystem':
         return <EcosystemVisual lang={lang} />;
+      case 'mayordomia':
+        return <MayordomiaVisual lang={lang} />;
       case 'closing':
         return <ClosingVisual lang={lang} labels={labels} onLeave={leaveFullscreen} />;
     }
@@ -1216,6 +1321,32 @@ export default function JourneyStage({ chapters, acts, layers, lang, labels }: P
           </div>
         </div>
 
+        {/* ---- copilot row: which AI tool he built with in each stretch */}
+        <div className="mt-4 grid gap-y-1" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
+          <p className="eyebrow col-span-full mb-1 hidden sm:block">{labels.copilot}</p>
+          {toolSpans.map((span, i) => {
+            const on = chapter.tool === span.tool;
+            const info = tools[span.tool];
+            return (
+              <button
+                key={span.tool}
+                type="button"
+                onClick={() => go(span.from)}
+                tabIndex={-1}
+                aria-hidden="true"
+                className="group relative min-w-0 px-0.5 text-left"
+                style={{ gridColumn: `${span.from + 1} / ${span.to + 2}` }}
+              >
+                <span className={`block h-0.5 rounded-full transition-colors duration-300 ${on ? 'bg-accent' : 'bg-line group-hover:bg-line-strong'}`} />
+                <span className={`mt-1.5 flex items-baseline gap-1 truncate text-[0.6rem] transition-colors sm:text-[0.68rem] ${on ? 'text-ink' : 'text-subtle'}`}>
+                  {i > 0 && <span className="hidden text-subtle sm:inline">→</span>}
+                  <span className="truncate">{info.short}</span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* ---- controls */}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-1.5">
@@ -1283,6 +1414,11 @@ export default function JourneyStage({ chapters, acts, layers, lang, labels }: P
               <span className="eyebrow-accent tnum">{chapter.period[lang]}</span>
               <span className="mx-2">·</span>
               {chapter.place[lang]}
+            </p>
+            <p className="mt-2 flex items-center gap-1.5 text-xs text-subtle">
+              <Glyph name="spark" size={12} className="text-accent" />
+              {labels.copilot}: <span className="text-muted">{tools[chapter.tool].name}</span>
+              <span>· {tools[chapter.tool].kind[lang]}</span>
             </p>
             <h3 className={`mt-3 font-serif leading-[1.1] tracking-[-0.012em] text-ink ${fullscreen ? 'text-4xl lg:text-[3.25rem]' : 'text-[1.9rem] md:text-[2.4rem]'}`}>
               {chapter.title[lang]}

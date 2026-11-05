@@ -1,7 +1,7 @@
 ---
 import Section from './Section.astro';
 import JourneyStage, { type JourneyLabels } from './react/JourneyStage';
-import { journey, journeyActs, layerLabels } from '../content/journey';
+import { journey, journeyActs, layerLabels, toolLabels } from '../content/journey';
 import { useTranslations, type Lang } from '../lib/i18n';
 
 interface Props {
@@ -25,6 +25,7 @@ const labels: JourneyLabels = {
   concepts: t('journeyConcepts'),
   illustrative: t('journeyIllustrative'),
   keysHint: t('journeyKeysHint'),
+  copilot: t('journeyCopilot'),
   ctaContact: t('heroCtaContact'),
   ctaProjects: t('heroCtaProjects'),
 };
@@ -43,6 +44,7 @@ const labels: JourneyLabels = {
       chapters={journey}
       acts={journeyActs}
       layers={layerLabels}
+      tools={toolLabels}
       lang={lang}
       labels={labels}
     />
