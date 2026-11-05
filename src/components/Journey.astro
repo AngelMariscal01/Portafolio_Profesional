@@ -1,0 +1,50 @@
+---
+import Section from './Section.astro';
+import JourneyStage, { type JourneyLabels } from './react/JourneyStage';
+import { journey, journeyActs, layerLabels } from '../content/journey';
+import { useTranslations, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const labels: JourneyLabels = {
+  chapters: t('journeyChapters'),
+  prev: t('journeyPrev'),
+  next: t('journeyNext'),
+  play: t('journeyPlay'),
+  pause: t('journeyPause'),
+  present: t('journeyPresent'),
+  exitPresent: t('journeyExitPresent'),
+  learned: t('journeyLearned'),
+  bring: t('journeyBring'),
+  stack: t('journeyStack'),
+  concepts: t('journeyConcepts'),
+  illustrative: t('journeyIllustrative'),
+  keysHint: t('journeyKeysHint'),
+  ctaContact: t('heroCtaContact'),
+  ctaProjects: t('heroCtaProjects'),
+};
+---
+
+<Section
+  id="trayectoria"
+  index="02"
+  eyebrow={t('sectionJourney')}
+  title={t('sectionJourneyTitle')}
+  lead={t('sectionJourneyLead')}
+>
+  <div class="reveal">
+    <JourneyStage
+      client:visible
+      chapters={journey}
+      acts={journeyActs}
+      layers={layerLabels}
+      lang={lang}
+      labels={labels}
+    />
+  </div>
+</Section>
