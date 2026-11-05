@@ -863,9 +863,9 @@ function Phone({ children, dim = false, label }: { children: React.ReactNode; di
 
 function MobileVisual({ lang }: { lang: Lang }) {
   const bubbles = [
-    { me: true, text: T(lang, '¿Qué pendientes tengo hoy?', 'What is on my list today?') },
-    { me: false, text: T(lang, 'Tres visitas y un reporte por enviar.', 'Three visits and one report to send.') },
-    { me: true, text: T(lang, 'Ordénalas por ruta', 'Sort them by route') },
+    { me: true, text: T(lang, '¿Qué ruta vendió más ayer?', 'Which route sold the most yesterday?') },
+    { me: false, text: T(lang, 'La ruta Norte. ¿Te doy el detalle por producto?', 'The North route. Want the breakdown by product?') },
+    { me: true, text: T(lang, 'Sí, por favor', 'Yes, please') },
   ];
   return (
     <div className="flex h-full flex-col">
@@ -879,6 +879,9 @@ function MobileVisual({ lang }: { lang: Lang }) {
         <Glyph name="right" size={22} className="shrink-0 text-accent" />
 
         <Phone label={<><p className="text-ink">React Native</p><p className="text-accent">Android + iOS</p></>}>
+          <span className="eyebrow eyebrow-accent flex items-center gap-1 !text-[0.55rem]">
+            <Glyph name="spark" size={9} /> Insight
+          </span>
           {bubbles.map((b, i) => (
             <span
               key={i}

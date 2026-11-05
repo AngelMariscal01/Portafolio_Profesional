@@ -328,21 +328,21 @@ export const journey: JourneyChapter[] = [
     act: 2,
     period: { es: '2025 — 2026', en: '2025 — 2026' },
     place: { es: 'Irakani · App móvil', en: 'Irakani · Mobile app' },
-    title: { es: 'La IA también en campo', en: 'AI in the field too' },
+    title: { es: 'Insight, también en el celular', en: 'Insight on the phone too' },
     story: {
       es: [
-        'La aplicación móvil estaba en Java y solo existía para Android. Quería llegar también a iOS, así que la rehíce en React Native e integré la IA.',
-        'Fue un reto grande. En menos de un año ya es una aplicación estable y funcional en ambas plataformas.',
+        'La aplicación móvil estaba en Java y solo existía para Android. Quería llegar también a iOS, así que la rehíce en React Native.',
+        'En la nueva versión integré a Insight, el mismo agente que ya consultaba los datos de cada cliente, sin construir otro. Fue un reto grande: en menos de un año ya es una aplicación estable y funcional en ambas plataformas.',
       ],
       en: [
-        'The mobile app was written in Java and only existed on Android. I wanted to reach iOS as well, so I rebuilt it in React Native and integrated AI into it.',
-        'It was a big challenge. In under a year it became a stable, working application on both platforms.',
+        'The mobile app was written in Java and only existed on Android. I wanted to reach iOS as well, so I rebuilt it in React Native.',
+        'In the new version I integrated Insight, the same agent that already queried each client’s data, instead of building another one. It was a big challenge: in under a year it became a stable, working application on both platforms.',
       ],
     },
     learned: [c('React Native', 'React Native', 'software'), c('Multiplataforma', 'Cross-platform', 'software')],
     lesson: {
-      es: 'La IA sirve donde está el trabajo: si el equipo está en campo, el agente también.',
-      en: 'AI is useful where the work is: if the team is in the field, the agent should be too.',
+      es: 'Un agente bien construido se reutiliza: Insight llegó al celular sin escribir un agente nuevo.',
+      en: 'A well-built agent gets reused: Insight reached the phone without writing a new agent.',
     },
     visual: 'mobile',
     tool: 'kiro',
